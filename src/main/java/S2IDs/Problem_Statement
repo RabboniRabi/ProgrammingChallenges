@@ -1,0 +1,23 @@
+Introduction: There is a company that generates its own internal unique identifier for each security in
+the market. This unique identifier is called "S2ID". The company stores the mapping from the S2ID to
+various well known ID's (such as Sedol, Cusip, ISIN etc.) in flat files.
+The file also mentions the various changes in the ID mapping occurring since the inception of the
+company, i.e. the complete history since the start is present in the file. This is done by mentioning a
+start and an end date for each ID. An ID is said to be "active" during this period.
+It has been observed that a particular well known ID can be mapped to different S2ID during different
+times.
+For example, consider Sedol: 2792134. (You can refer to the input file for better understanding)
+During 19961231 to 19970731, the sedol is mapped to ARGADU1.
+During 19970801 to 19981130, the sedol is mapped to ARGADU2.
+During 19981201 to 19981231, the sedol is mapped again to ARGADU1.
+During 19990101 to 20080911, the sedol is mapped again to ARGADU2.
+There is a frequent need of mapping the various well know ID's to a unique S2ID (if exists), given a
+particular date. The returned S2ID should be such that the input well-known ID should be active at the
+specified date.
+Write a script that helps user to get a S2ID for a particular Sedol/Cusip/Isin.
+Input: The program asks user to choose between: Sedol/Cusip/ISIN, then takes as input:
+1. A comma separated list of appropriate ID's
+2. The date for which to check (in YYYYMMDD format). This date will be common to all the input
+ID's
+Output: A comma separated list of unique S2ID's if exists else reports an error for each unmatched ID.
+The code must take the input from stdin and produce output to stdout as specified above.
